@@ -9,12 +9,14 @@ from .models import PdfFile
 class PDFView(View):
 
     def post(self, request, *args, **kwargs): 
+        name=request.POST['name']
+        driver=request.POST['driver']
         items = json.loads(request.POST['items'])
         mobile=request.POST['mobile']
         iqama =request.POST['iqama']
         cfile = PdfFile.objects.create()
         pdf_gen = GeneratePDF(cfile, request.build_absolute_uri()[:-1])
-        pdf_gen.generate(items, mobile, iqama)
+        pdf_gen.generate(items, name, driver,mobile, iqama)
         # messages.success(request, 'Challan generated successfully!')
         return redirect('/')
     

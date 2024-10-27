@@ -9,7 +9,7 @@ class GeneratePDF:
         self.url = url 
         self.cfile = cfile
 
-    def generate(self,name, driver,items, mobile, iqama):
+    def generate(self,items, name, driver,mobile, iqama):
         print(items)
         context = {
             'totalqty': sum([i[1] for i in items if i[1]]),
