@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block extraextra_content %}
+
+
+<div class="card-body">
+  <form method="post" action="." id="frm_ac">{% csrf_token %} 
+    
+    <div class="row mb-3">
+        <div class="col-sm-3">
+            <input class="form-control" placeholder="Mr Name" name="name" required>
+          </div>
+          <div class="col-sm-3">
+            <input class="form-control" placeholder="Driver details" name="driver" required>
+          </div>
+        <div class="col-sm-3">
+          <input class="form-control" placeholder="Iqama" name="iqama" required>
+        </div>
+        <div class="col-sm-3">
+            <input class="form-control" placeholder="Mobile" name="mobile" required>
+          </div>
+    </div>
+    <input type="hidden" id="items" name="items">
+    
+    <div id="amount_table"></div><br>
+    
+    <hr>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary" type="submit">Generate</button>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}
+
+
+{% block extrajs %}
+<script src="{% static 'handsontable/handsontable.full.min.js' %}"></script>
+<script type="text/javascript">
+
+  var container = document.getElementById('amount_table');
+  var amount_table = new Handsontable(container, {
+    columns: [
+      { data: 1, type: "text" },
+      { data: 2, type: "numeric" },
+    ],
+    colWidths: [200, 40],
+    rowHeaders: true,
+    colHeaders: [
+      'Description',
+      'Qty',
+    ],
+    licenseKey: 'non-commercial-and-evaluation',
+    afterChange(changes, source) {
+        let amts = this.getData(); // getDataAtCol(1);
+        $("#items").val(JSON.stringify(amts));
+        console.log(amts)
+    }
+  });
+
+</script>
+
+{% endblock %}
