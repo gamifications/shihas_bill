@@ -1,20 +1,18 @@
 <table class="center-table">
     <tr>
-      <td>Description</td>
-      <td>Qty</td>
+      <th>SLNO.</th>
+      <th>DESCRIPTION</th>
+      <th>UNIT</th>
+      <th>QTY</th>
     </tr>
     {% for item in items %}
     <tr>
-      <td style="width: 600px">{{item.0}}</td>
-      <td style="width: 100px">{{item.1}}</td>
+      <td style="width: 50px">{{forloop.counter}}</td>
+      <td style="width: 500px">{{item.0}}</td>
+      <td style="width: 75px">{{item.0}}</td>
+      <td style="width: 75px">{{item.1}}</td>
     </tr>
     {% endfor %}
 
-    <tr>
-      <td style="border-bottom-style: hidden; border-left-style: hidden">
-        <div style="text-align: right">Total</div>
-      </td>
-
-      <td>{{totalqty}}</td>
-    </tr>
   </table>
+  <div style="text-align: right">Total: {{totalqty}}</div>

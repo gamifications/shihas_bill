@@ -7,11 +7,13 @@ from django.views import View
 from .models import PdfFile
 
 class PDFView(View):
+    def get_items(self, items):
+        return json.loads(items)
 
     def post(self, request, *args, **kwargs): 
         name=request.POST['name']
         driver=request.POST['driver']
-        items = json.loads(request.POST['items'])
+        items = self.get_items(request.POST['items'])
         mobile=request.POST['mobile']
         iqama =request.POST['iqama']
         cfile = PdfFile.objects.create()

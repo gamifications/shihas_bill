@@ -14,20 +14,25 @@
       color:#131a6e;      
     }
 
-    {% comment %} * {
-      border-style: solid;
-      border-color: #131a6e;
-  } {% endcomment %}
-    
-    
     td {
       width: 100%;
     }
-   
-    /* need to remove */
-    table {
-      border: 1px solid #000;
+    table.center-table {
+      border-collapse: collapse;
+      border: solid 1px #131a6e; 
     }
+    .center-table th {
+      border: solid 1px #131a6e; 
+    }
+    .center-table td {
+      border-right: solid 1px #131a6e; 
+      border-left: solid 1px #131a6e;
+    }
+
+    /* need to remove */
+    {% comment %} table {
+      border: 1px solid #000;
+    } {% endcomment %}
   </style>
 
   <body>

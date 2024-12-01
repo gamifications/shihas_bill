@@ -49,18 +49,18 @@
                 
                 <table class="table table-bordered">
                 <thead>
-                    <tr><td>Created Date/Time</td><td>PDF Download</td></tr>
+                    <tr><td>No</td><td>PDF Download</td><td>Created on</td></tr>
                 </thead>
                 {% for file in files %}
                 <tr{% if messages and forloop.counter == 1 %} style="font-weight:bold;"{%endif%}>
+                    <td>{{ file.id|stringformat:"04d" }}</td>
                     
-                    <td>{{file.uploading_date}}<br>
-                        <small>{{file.uploading_date|naturaltime}}</small></td>
                     <td>
                         <a href="{% if file.billfile %}{{file.billfile.url}}{% endif%}">
                             <img src="{% static 'pdf.svg' %}" style="height:30px"> Download
                         </a>
                     </td>
+                    <td><small>{{file.uploading_date|naturaltime}}</small></td>
                 </tr>
                 {% endfor %}
                 </table>
