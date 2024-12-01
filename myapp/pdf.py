@@ -23,7 +23,7 @@ class GeneratePDF:
             'date': self.cfile.uploading_date, # timezone.now(),
         }
         
-        html = HTML(string=render_to_string('pdf.html', context))
+        html = HTML(string=render_to_string('pdf/index.html', context))
         html.write_pdf(f'{settings.MEDIA_ROOT}/output/challan.pdf')
 
         self.cfile.billfile.save(f'{self.cfile.id}.pdf', File(open(f'{settings.MEDIA_ROOT}/output/challan.pdf','rb')))

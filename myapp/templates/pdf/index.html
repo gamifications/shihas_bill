@@ -1,0 +1,30 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Material Transport Invoice</title>
+  </head>
+  <style>
+    @page {
+      size: A4;
+      margin: 10px;
+    }
+
+    body {
+      font-size: 12px;      
+    }
+
+    table,
+    td {
+      width: 100%;
+    }
+   
+  </style>
+
+  <body>
+    {% include "pdf/1_header.html" %}
+    {% include "pdf/2_details.html" %}
+    {% include "pdf/3_description.html" %}
+    {% include "pdf/4_footer.html" %} 
+  </body>
+</html>
