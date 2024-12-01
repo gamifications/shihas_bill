@@ -1,30 +1,37 @@
-<table style="table-layout: fixed;width: 248px;line-height: 34%;">
+{% load app_extras %}
+<table style="table-layout: fixed;width: 240px;line-height: 34%;">
   <tr>
     <td style="text-align: center">      
       <p style="font-size: 16px">Est.</p>
       <p style="font-weight: bold;font-size: 15px">Muhammad Rayhan Al Massad</p>
       <p>For general contracting</p>
-      <p>C R: 5950125006</p><br />
-      
+      <p>C R: 5950125006</p><br />      
     </td>
 
     <td rowspan="2" style="text-align: center">
-      0074
+      <p style="font-size: 20px; color: #ad3d26">{{ file.id|stringformat:"04d" }}</p>
+      <div style="margin:10px;border: 2px solid #131a6e;border-radius: 15px;">
+        <p style="font-weight: bold;font-size: 20px;">فاتورة نقل مواد</p>
+        <p>Material transport invoice</p>
+      </div>
     </td>
 
     <td style="text-align: center">
-      مؤسسة
+      <p style="font-size: 18px">مؤسسة</p>
+      <p style="font-weight: bold;font-size: 22px">محمد ريحان ال مسعد</p>
+      <p style="font-size: 18px">للمقاولات العامة</p>
+      <p style="font-size: 18px">س .ت: {{'5950125006'|to_arabic}}</p>
     </td>
   </tr>
   <tr>
     <td>
-      <p>
-        Date: {{date.day|stringformat:"02d"}}/{{date.month|stringformat:"02d"}}/{{date.year}}
+      <p style="font-size: 14px">
+        Date: {{date.day|stringformat:"02d"}} / {{date.month|stringformat:"02d"}} / {{date.year}}
       </p>
     </td>
     <td style="text-align: right">
-      <p>
-        Date: {{date.day|stringformat:"02d"}}/{{date.month|stringformat:"02d"}}/{{date.year}}
+      <p style="font-size: 16px">
+        التاريخ : {{date.year|to_arabic}} / {{date.month|stringformat:"02d"|to_arabic}} / {{date.day|stringformat:"02d"|to_arabic}}
       </p>
     </td>
   </tr>
