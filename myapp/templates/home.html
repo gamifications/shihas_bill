@@ -1,13 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block extraextra_content %}
-
-
 <div class="card-body">
-  <form method="post" action="." id="frm_ac">{% csrf_token %} 
-    
+  <form method="post" action="." id="frm_ac">{% csrf_token %}     
     <div class="row mb-3">
         <div class="col-sm-3">
             <input class="form-control" placeholder="Mr Name" name="name" required>
@@ -19,8 +15,8 @@
           <input class="form-control" placeholder="Iqama" name="iqama" required>
         </div>
         <div class="col-sm-3">
-            <input class="form-control" placeholder="Mobile" name="mobile" required>
-          </div>
+          <input class="form-control" placeholder="Mobile" name="mobile" required>
+        </div>
     </div>
     <input type="hidden" id="items" name="items">
     
@@ -32,8 +28,6 @@
     </div>
   </form>
 </div>
-
-
 {% endblock %}
 
 
