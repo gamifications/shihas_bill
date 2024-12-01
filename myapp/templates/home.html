@@ -3,21 +3,30 @@
 
 {% block extraextra_content %}
 <div class="card-body">
-  <form method="post" action="." id="frm_ac">{% csrf_token %}     
-    <div class="row mb-3">
-        <div class="col-sm-3">
-            <input class="form-control" placeholder="Mr Name" name="name" required>
-          </div>
-          <div class="col-sm-3">
-            <input class="form-control" placeholder="Driver details" name="driver" required>
-          </div>
-        <div class="col-sm-3">
-          <input class="form-control" placeholder="Iqama" name="iqama" required>
-        </div>
-        <div class="col-sm-3">
-          <input class="form-control" placeholder="Mobile" name="mobile" required>
-        </div>
+  <form method="post" action="." id="frm_ac">{% csrf_token %}  
+    <div class="mb-3">
+      <label for="lblname" class="form-label">Name:</label>
+      <input class="form-control" id="lblname" name="name" required>
     </div>
+    <div class="mb-3">
+      <label for="lbliqama" class="form-label">Iqama Number:</label>
+      <input class="form-control" id="lbliqama" name="iqama" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="lblmobile" class="form-label">Mobile Number:</label>
+      <input class="form-control" id="lblmobile" name="mobile" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="lblmodel" class="form-label">Model Number:</label>
+      <input class="form-control" id="lblmodel" name="model" required>
+    </div>
+    <div class="mb-3">
+      <label for="lblplate" class="form-label">Plate Number:</label>
+      <input class="form-control" id="lblplate" name="plate" required>
+    </div>
+
     <input type="hidden" id="items" name="items">
     
     <div id="amount_table"></div><br>
@@ -39,12 +48,14 @@
   var amount_table = new Handsontable(container, {
     columns: [
       { data: 1, type: "text" },
-      { data: 2, type: "numeric" },
+      { data: 2, type: "text" },
+      { data: 3, type: "numeric" },
     ],
-    colWidths: [200, 40],
+    colWidths: [160,40, 40],
     rowHeaders: true,
     colHeaders: [
       'Description',
+      'Unit',
       'Qty',
     ],
     licenseKey: 'non-commercial-and-evaluation',

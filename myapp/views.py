@@ -12,13 +12,14 @@ class PDFView(View):
 
     def post(self, request, *args, **kwargs): 
         name=request.POST['name']
-        driver=request.POST['driver']
+        modelno=request.POST['model']
+        plate=request.POST['plate']
         items = self.get_items(request.POST['items'])
         mobile=request.POST['mobile']
         iqama =request.POST['iqama']
         cfile = PdfFile.objects.create()
         pdf_gen = GeneratePDF(cfile, request.build_absolute_uri()[:-1])
-        pdf_gen.generate(items, name, driver,mobile, iqama)
+        pdf_gen.generate(items, name,iqama, mobile, modelno,plate)
         # messages.success(request, 'Challan generated successfully!')
         return redirect('/')
     

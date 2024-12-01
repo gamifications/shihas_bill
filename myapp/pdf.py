@@ -9,15 +9,16 @@ class GeneratePDF:
         self.url = url 
         self.cfile = cfile
 
-    def generate(self,items, name, driver,mobile, iqama):
+    def generate(self,items, name, iqama, mobile, modelno, plate):
         print(items)
         context = {
-            'totalqty': sum([i[1] for i in items if i[1]]),
+            'totalqty': sum([i[2] for i in items if i[2]]),
             'file': self.cfile,            
             'url':  self.url, # strip last /
             'items': items, 
             'name':name,
-            'driver':driver,
+            'modelno':modelno,
+            'plate':plate,
             'mobile': mobile,
             'iqama': iqama,
             'date': self.cfile.uploading_date, # timezone.now(),
