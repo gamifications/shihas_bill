@@ -6,13 +6,32 @@
     <th style="text-align: center">الكمية<br />QTY</th>
   </tr>
   {% for item in items %}
+  {% if item.1 %}
   <tr>
     <td style="width: 50px;text-align: center">{{forloop.counter}}</td>
     <td style="width: 500px">{{item.0}}</td>
     <td style="width: 75px;text-align: center">{{item.1}}</td>
     <td style="width: 75px;text-align: center">{{item.2}}</td>
   </tr>
+  {%else%}
+  
+  <tr style="height: 18px;">
+    <td style="width: 50px;text-align: center"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  {% endif %}
   {% endfor %}
+ 
 </table>
+<br />
 
-<div style="text-align: right">Total: {{totalqty}}</div>
+<table style="table-layout: fixed;">
+  <tr>
+    <td>
+      <p style="text-align: right;font-weight: bold;">Total Quantity: {{totalqty}}  </p>      
+    </td>
+  </tr>
+</table>
+<br />
