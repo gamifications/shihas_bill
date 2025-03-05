@@ -22,4 +22,5 @@ from myapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.PDFView.as_view(), name='home'),
+    path("ajax/<str:purpose>/", views.ajax_views, name="ajax_views"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
